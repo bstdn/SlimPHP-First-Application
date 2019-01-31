@@ -1,0 +1,13 @@
+.DS_Store
+.idea
+
+vendor/*
+
+application/config/*
+!application/config/*.php
+!application/config/*_example
+
+application/logs/*
+!application/logs/index.html
+
+public/config.php
