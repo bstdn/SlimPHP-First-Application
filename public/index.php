@@ -43,20 +43,9 @@ require_once BASEPATH . 'core/MY_Slim.php';
 
 require '../vendor/autoload.php';
 
-$container = MY_Slim::instance()->getContainer();
+$container = MY_Slim::instance()->init()->get_container();
 
 $app = new \Slim\App($container);
-
-$container['logger'] = function(\Slim\Container $c) {
-    $logger = null;
-    if($c->get('settings')['log']['channel'] && $c->get('settings')['log']['path']) {
-        $logger = new \Monolog\Logger($c->get('settings')['log']['channel']);
-        $file_handler = new \Monolog\Handler\StreamHandler($c->get('settings')['log']['path']);
-        $logger->pushHandler($file_handler);
-    }
-
-    return $logger;
-};
 
 $app->get('/', function(Request $request, Response $response, $args) {
     return $response->write("Hello world");

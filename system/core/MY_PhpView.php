@@ -38,7 +38,7 @@ class MY_PhpView extends PhpRenderer {
 
             return $this->_view($response, "{$this->_theme}/_layouts/{$this->_layout}", ['content' => $content]);
         } else {
-            return parent::render($response, "{$this->_theme}/{$template}", $data);
+            return $this->_view($response, "{$this->_theme}/{$template}", $data);
         }
     }
 
