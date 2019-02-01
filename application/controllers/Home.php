@@ -12,6 +12,12 @@ class Home extends MY_Controller {
     public function item() {
         $data = Demo_list::caller()->fetch_all();
         pr('$data', $data);
+
+        $n_data = Demo_query::caller()->fetch_all();
+        pr('$n_data', $n_data);
+
+        $i_data = Demo_item::caller()->fetch_all();
+        pr('$i_data', $i_data);
     }
 
     public function item_first(Request $request, Response $response) {
